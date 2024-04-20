@@ -12,7 +12,7 @@ function CitiesTabs(): JSX.Element {
               <li className="locations__item" key={city}>
                 <Link
                   to={AppRoute.Main}
-                  className={index === 3 ? linkBaseClassName.concat(' tabs__item--active') : linkBaseClassName}
+                  className={index === 0 ? linkBaseClassName.concat(' tabs__item--active') : linkBaseClassName}
                 >
                   <span>{city}</span>
                 </Link>
