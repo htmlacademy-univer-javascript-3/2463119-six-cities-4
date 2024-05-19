@@ -8,26 +8,20 @@ import OfferPage from '../../pages/offer-page/offer-page.tsx';
 import NotFoundPage from '../../pages/not-found-page/not-found-page.tsx';
 import {OffersShort} from '../../types/offers/offer-short.ts';
 import {OffersDetailed} from '../../types/offers/offer-detailed.ts';
-import {City} from '../../types/city.ts';
 
 type AppProps = {
-  rentOffersCount: number;
   offersDetailed: OffersDetailed;
   allFavorites: OffersShort;
-  city: City;
 }
 
-function App({rentOffersCount, offersDetailed, allFavorites, city}: AppProps): JSX.Element {
+function App({offersDetailed, allFavorites}: AppProps): JSX.Element {
   return (
     <BrowserRouter>
       <Routes>
         <Route
           path={AppRoute.Main}
           element={
-            <MainPage
-              rentOffersCount={rentOffersCount}
-              city={city}
-            />
+            <MainPage />
           }
         />
         <Route
