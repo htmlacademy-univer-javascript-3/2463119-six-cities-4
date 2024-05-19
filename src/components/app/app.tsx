@@ -9,18 +9,15 @@ import NotFoundPage from '../../pages/not-found-page/not-found-page.tsx';
 import {OffersShort} from '../../types/offers/offer-short.ts';
 import {OffersDetailed} from '../../types/offers/offer-detailed.ts';
 import {City} from '../../types/city.ts';
-import {mockOffersShort} from '../../moks/offers-short.ts';
-import {shuffleArray} from '../../utils.ts';
 
 type AppProps = {
   rentOffersCount: number;
-  offersShort: OffersShort;
   offersDetailed: OffersDetailed;
   allFavorites: OffersShort;
   city: City;
 }
 
-function App({rentOffersCount, offersShort, offersDetailed, allFavorites, city}: AppProps): JSX.Element {
+function App({rentOffersCount, offersDetailed, allFavorites, city}: AppProps): JSX.Element {
   return (
     <BrowserRouter>
       <Routes>
@@ -29,7 +26,6 @@ function App({rentOffersCount, offersShort, offersDetailed, allFavorites, city}:
           element={
             <MainPage
               rentOffersCount={rentOffersCount}
-              offers={offersShort}
               city={city}
             />
           }
@@ -49,9 +45,13 @@ function App({rentOffersCount, offersShort, offersDetailed, allFavorites, city}:
         <Route path={AppRoute.Offer}>
           <Route index element={<NotFoundPage/>}/>
           <Route path={':id'}
-            element={<OfferPage offersDetailed={offersDetailed} nearbyOffers={shuffleArray(mockOffersShort)}/>}
+            element={<OfferPage offersDetailed={offersDetailed}/>}
           />
         </Route>
+        <Route
+          path={AppRoute.NotFound}
+          element={<NotFoundPage/>}
+        />
         <Route
           path='*'
           element={<NotFoundPage/>}

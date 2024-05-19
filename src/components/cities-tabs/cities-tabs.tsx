@@ -1,24 +1,16 @@
-import {Link} from 'react-router-dom';
-import {AppRoute, Settings} from '../../const.ts';
+import {useAppSelector} from '../../hooks/redux.ts';
+import CityTab from './city-tab.tsx';
+import {mockCities} from '../../moks/cities.ts';
 
 function CitiesTabs(): JSX.Element {
-  const linkBaseClassName = 'locations__item-link tabs__item'; // tabs__item--active
+  const activeCity = useAppSelector((state) => state.activeCity);
+
   return (
     <div className="tabs">
       <section className="locations container">
         <ul className="locations__list tabs__list">
-          {Settings.availableCities.map((city, index) =>
-            (
-              <li className="locations__item" key={city}>
-                <Link
-                  to={AppRoute.Main}
-                  className={index === 0 ? linkBaseClassName.concat(' tabs__item--active') : linkBaseClassName}
-                >
-                  <span>{city}</span>
-                </Link>
-              </li>
-            )
-          )}
+          {Object.values(mockCities).map((city) =>
+            <CityTab city={city} isActive={city.name === activeCity.name} key={city.name}/>)}
         </ul>
       </section>
     </div>
