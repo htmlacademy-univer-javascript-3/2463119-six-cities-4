@@ -19,6 +19,7 @@ type AppProps = {
 function App({offersDetailed, allFavorites}: AppProps): JSX.Element {
   const isOffersLoading = useAppSelector((state) => state.isOffersLoading);
 
+
   return (
     <>
       {isOffersLoading && <LoadingSpinner/>}
