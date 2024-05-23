@@ -1,7 +1,10 @@
-export type UserData = {
+export type BaseUser = {
   name: string;
   avatarUrl: string;
   isPro: boolean;
+}
+
+export type UserData = BaseUser & {
   email: string;
   token: string;
 }
