@@ -10,7 +10,7 @@ import {OfferDetailed} from '../../../types/offers/offer-detailed.ts';
 import OfferGallery from '../offer-gallery.tsx';
 import {toggleOfferFavoriteStatus} from '../../../store/api-actions.ts';
 import {useAppDispatch} from '../../../hooks/services/redux.ts';
-import {memo, useCallback} from 'react';
+import {memo} from 'react';
 
 type OfferDetailProps = {
   offer: OfferDetailed;
@@ -18,9 +18,9 @@ type OfferDetailProps = {
 
 function OfferDetail({offer: currentOffer} : OfferDetailProps) : JSX.Element {
   const dispatch = useAppDispatch();
-  const handleButtonClick = useCallback(() => {
+  const handleButtonClick = () => {
     dispatch(toggleOfferFavoriteStatus(currentOffer));
-  }, []);
+  };
 
   return (
     <>
