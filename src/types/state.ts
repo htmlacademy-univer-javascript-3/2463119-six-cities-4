@@ -31,6 +31,10 @@ export type RequestProcess = {
   requestStatus: RequestStatus;
 }
 
+export type FavoriteDataProcess = {
+  favoriteOffers: OffersShort;
+}
+
 export type RootState = ReturnType<typeof store.getState>;
 
 export type AppDispatch = typeof store.dispatch;

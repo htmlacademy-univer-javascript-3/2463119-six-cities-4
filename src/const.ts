@@ -82,13 +82,15 @@ export enum APIRoute {
   Logout = '/logout',
   Nearby = '/nearby',
   Comments = '/comments',
+  Favorite = '/favorite',
 }
 
 export enum StoreNameSpace {
   Data = 'DATA',
   User = 'USER',
-  DetailedData = 'DETAILED_DATA',
-  RequestCondition = 'REQUEST_CONDITION',
+  DetailedData = 'DETAILED',
+  RequestCondition = 'REQ_CONDITION',
+  FavoriteData = 'FAVORITE',
 }
 
 export const SortComparisons : Record<SortingOrder, (a: OfferShort, b: OfferShort) => number> = {
