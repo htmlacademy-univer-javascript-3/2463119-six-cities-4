@@ -2,9 +2,10 @@ import {OffersShort} from '../../types/offers/offer-short.ts';
 import OfferCard from '../offer/offer-card/offer-card.tsx';
 import {Link} from 'react-router-dom';
 import {AppRoute} from '../../const.ts';
-import {setActiveCity} from '../../store/acions.ts';
 import {getCityObjectByName} from '../../utils.ts';
-import {useAppDispatch} from '../../hooks/redux.ts';
+import {useAppDispatch} from '../../hooks/services/redux.ts';
+import {setActiveCity} from '../../store/data-process/data-process.slice.ts';
+import {useCallback} from 'react';
 
 type FavoritesListElementProps = {
   favoritesAtCity: OffersShort;
@@ -13,12 +14,12 @@ type FavoritesListElementProps = {
 
 function FavoritesListElement({favoritesAtCity, cityName}: FavoritesListElementProps): JSX.Element {
   const dispatch = useAppDispatch();
-  const handleLinkOnClick = () => {
+  const handleLinkOnClick = useCallback (() => {
     const city = getCityObjectByName(cityName);
     if (city) {
       dispatch(setActiveCity(city));
     }
-  };
+  }, []);
 
   return (
     <li className="favorites__locations-items">
@@ -31,7 +32,7 @@ function FavoritesListElement({favoritesAtCity, cityName}: FavoritesListElementP
       </div>
       <div className="favorites__places">
         {favoritesAtCity.map((offer) => (
-          <OfferCard key={offer.id} placeShortInfo={offer} variant={'favorites'}/>
+          <OfferCard key={offer.id} offerInfo={offer} variant={'favorites'}/>
         ))}
       </div>
     </li>

@@ -1,17 +1,9 @@
 import {Link} from 'react-router-dom';
 import {AppRoute} from '../../const.ts';
-import {useAuthorization} from '../../hooks/use-authorization.ts';
-import {useAppDispatch, useAppSelector} from '../../hooks/redux.ts';
-import {logoutAction} from '../../store/api-actions.ts';
+import {useHeaderUserNavigation} from '../../hooks/components/use-header-user-navigation.ts';
 
-function HeaderNavigation(): JSX.Element {
-  const isAuthorized = useAuthorization();
-  const dispatch = useAppDispatch();
-  const userData = useAppSelector((state) => state.userData);
-
-  const handleLinkClick = () => {
-    dispatch(logoutAction());
-  };
+function HeaderUserNavigation(): JSX.Element {
+  const {isAuthorized, userData, favoriteOffers, handleLinkClick} = useHeaderUserNavigation();
 
   return (
     <nav className="header__nav">
@@ -33,7 +25,7 @@ function HeaderNavigation(): JSX.Element {
                 >
                 </div>
                 <span className="header__user-name user__name">{userData?.email}</span>
-                <span className="header__favorite-count">{3}</span>
+                <span className="header__favorite-count">{favoriteOffers.length}</span>
               </Link>
             </li>
             <li className="header__nav-item">
@@ -47,4 +39,4 @@ function HeaderNavigation(): JSX.Element {
   );
 }
 
-export default HeaderNavigation;
+export default HeaderUserNavigation;

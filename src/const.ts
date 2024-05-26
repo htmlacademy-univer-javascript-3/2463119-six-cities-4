@@ -82,9 +82,18 @@ export enum APIRoute {
   Logout = '/logout',
   Nearby = '/nearby',
   Comments = '/comments',
+  Favorite = '/favorite',
 }
 
-export const SortComparers : Record<SortingOrder, (a: OfferShort, b: OfferShort) => number> = {
+export enum StoreNameSpace {
+  Data = 'DATA',
+  User = 'USER',
+  DetailedData = 'DETAILED',
+  RequestCondition = 'REQ_CONDITION',
+  FavoriteData = 'FAVORITE',
+}
+
+export const SortComparisons : Record<SortingOrder, (a: OfferShort, b: OfferShort) => number> = {
   [SortingOrder.popular]: () => 0,
   [SortingOrder.priceToHigh]: (a: OfferShort, b: OfferShort) => a.price - b.price,
   [SortingOrder.priceToLow]: (a: OfferShort, b: OfferShort) => b.price - a.price,
@@ -93,3 +102,9 @@ export const SortComparers : Record<SortingOrder, (a: OfferShort, b: OfferShort)
 
 export const URL_MARKER_DEFAULT = './img/pin.svg';
 export const URL_MARKER_CURRENT = './img/pin-active.svg';
+
+export const MIN_REVIEW_COMMENT_LENGTH = 50;
+
+export const MAX_REVIEW_COMMENT_LENGTH = 300;
+
+export const MAX_NEIGHBOURHOOD_POINTS_ON_MAP = 3;
