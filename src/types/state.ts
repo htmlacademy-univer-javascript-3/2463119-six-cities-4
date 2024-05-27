@@ -1,9 +1,8 @@
 import {store} from '../store';
-import {AuthStatus} from '../const.ts';
+import {AuthStatus, SortingOrder} from '../const.ts';
 import {Nullable} from './nullable.ts';
 import {UserData} from './user-data.ts';
 import {OffersShort} from './offers/offer-short.ts';
-import {SortingOrder} from './sorting-order.ts';
 import {City} from './city.ts';
 import {RequestStatus} from './request-status.ts';
 import {OfferDetailed} from './offers/offer-detailed.ts';

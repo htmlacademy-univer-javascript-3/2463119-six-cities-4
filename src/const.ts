@@ -1,4 +1,3 @@
-import {SortingOrder} from './types/sorting-order.ts';
 import {OfferShort} from './types/offers/offer-short.ts';
 import {City} from './types/city.ts';
 
@@ -83,6 +82,13 @@ export enum APIRoute {
   Nearby = '/nearby',
   Comments = '/comments',
   Favorite = '/favorite',
+}
+
+export enum SortingOrder {
+  popular = 'Popular',
+  priceToHigh = 'Price: low to high',
+  priceToLow = 'Price: high to low',
+  topRated = 'Top rated first',
 }
 
 export enum StoreNameSpace {

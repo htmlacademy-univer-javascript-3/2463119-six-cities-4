@@ -1,6 +1,5 @@
 import {DataProcess} from '../../types/state.ts';
-import {CityObject, StoreNameSpace} from '../../const.ts';
-import {SortingOrder} from '../../types/sorting-order.ts';
+import {CityObject, SortingOrder, StoreNameSpace} from '../../const.ts';
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {fetchOffersAction, toggleOfferFavoriteStatus} from '../api-actions.ts';
 import {City} from '../../types/city.ts';
