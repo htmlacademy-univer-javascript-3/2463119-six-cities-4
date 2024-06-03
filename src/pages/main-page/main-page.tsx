@@ -17,7 +17,7 @@ function MainPage(): JSX.Element {
         <CitiesTabs/>
 
         <div className="cities">
-          {offersIsEmpty && <EmptyMain/>}
+          {offersIsEmpty && <EmptyMain cityName={activeCity.name}/>}
           {!offersIsEmpty &&
             <div className="cities__places-container container">
               <OfferCardList cityName={activeCity.name} offers={offersByCity} offersCount={offersByCity.length}
